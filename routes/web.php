@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,12 @@ Route::get('/deceased', 'GuestController@deceased')->name('deceased');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('lots','LotController');
     Route::resource('sectors','SectorController');
-    Route::resource('persons','PersonController');
+    // Route::resource('persons','PersonController');
+    Route::get('/persons', 'PersonController@index')->name('persons.index');
+    Route::get('/graves/{grave}/person/create', 'PersonController@create')->name('persons.create');
+    Route::post('/graves/{grave}/person/store', 'PersonController@store')->name('persons.store');
+    Route::get('/persons/{person}/show', 'PersonController@show')->name('persons.show');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
+    Route::resource('sectors.graves', 'GraveController')->shallow();
 });

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Grave;
+use App\Lot;
 use App\Sector;
 use App\Person;
 use Illuminate\Http\Request;
@@ -14,32 +17,35 @@ class PersonController extends Controller
 
     public function index()
     {
-        $persons = Person::latest()->paginate(5);
-  
-        return view('persons.index',compact('persons'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $lots = Lot::all();
+
+        return view('persons.index',compact('lots'));
     }
 
-    public function create()
+    public function create(Grave $grave)
     {
-        $sectors = Sector::all();
-        return view('persons.create', compact('sectors'));
+        return view('persons.create', compact('grave'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Grave $grave)
     {
         $request->validate([
-            'sector_id' => 'required',
             'lastname' => 'required',
             'firstname' => 'required',
             'mi' => 'required',
             'born' => 'required',
             'died' => 'required'
         ]);
-  
-        Person::create($request->all());
-   
+
+        $grave->person()->create($request->all());
+
         return redirect()->route('persons.index')
-                        ->with('success','Success!.');
+                        ->with('success', 'Success!.');
+    }
+
+    public function show(Person $person)
+    {
+
+        return view('persons.show', compact('person'));
     }
 }
