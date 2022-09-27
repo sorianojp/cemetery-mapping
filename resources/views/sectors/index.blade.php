@@ -14,6 +14,7 @@
                 <th>No</th>
                 <th>Name</th>
                 <th>Lot</th>
+                <th>Graves</th>
                 <th>Action</th>
 
             </tr>
@@ -22,8 +23,9 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $sector->name }}</td>
                 <td>{{ $sector->lot->name }}</td>
+                <td>{{ $sector->graves->count()}}</td>
                 <td>
-                    <a href="{{ route('sectors.graves.index', $sector) }}">Show</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('sectors.graves.index', $sector) }}">Show Graves</a>
                 </td>
             </tr>
             @endforeach

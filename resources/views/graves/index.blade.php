@@ -8,11 +8,15 @@
             </div>
         @endif
 
-        <a class="btn btn-success my-2" href="{{ route('sectors.graves.create', $sector) }}">Create</a>
+        <a class="btn btn-success my-2" href="{{ route('sectors.graves.create', $sector) }}">Add</a>
         <div>
 
             @foreach ($sector->graves as $grave)
-                <button class="btn btn-secondary">{{ $loop->iteration }}</button>
+                @if($grave->person)
+                <button class="btn btn-sm my-1 mx-1 btn-primary" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}">{{ $loop->iteration }}</button>
+                @else
+                <button class="btn btn-sm my-1 mx-1 btn-secondary">{{ $loop->iteration }}</button>
+                @endif
             @endforeach
         </div>
     </div>

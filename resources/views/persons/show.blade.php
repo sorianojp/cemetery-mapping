@@ -1,20 +1,39 @@
 @extends('layouts.app')
+@section('styles')
+<style>
+.lapida {
+  position: relative;
+  text-align: center;
+}
 
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+@endsection
 @section('content')
-
-   <div class="container my-5">
+<div class="container my-5">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 {{ $message }}
             </div>
         @endif
 
-        <h1>Grave {{ $person->grave_id }}</h1>
-        <h2>Full Name: {{ $person->full_name }}</h2>
-        <h3>Born: {{ $person->born }}</h3>
-        <h3>Died: {{ $person->died }}</h3>
-
-        <a class="btn btn-secondary my-2" href="{{ route('persons.index') }}">Back</a>
-    </div>
-
+        <div class="lapida">
+            <img src="{{ asset('images/lapida.png') }}" alt="Snow" style="width:100%;">
+            <div class="centered">
+                <h1 class="font-weight-bold">{{ $person->full_name }}</h1>
+                <h5 class="font-weight-bold">BORN: {{ \Carbon\Carbon::parse($person->born)->format('M-d-Y')}}</h5>
+                <h5 class="font-weight-bold">DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</h5>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-secondary my-2" href="{{ route('persons.index') }}">Back</a>
+        </div>
+</div>
+@endsection
+@section('scripts')
 @endsection
