@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
     <style>
               /* Sticky footer styles
       -------------------------------------------------- */
@@ -59,15 +60,24 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('deceased') }}">{{ __('Deceased Person') }}</a>
-                            </li> -->
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
+                            </li>                   
+                            @can('user')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('deceaseds.index') }}">Deceased Persons</a>
+                            </li>
+                            @endcan
                             @can('staff')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('persons.index') }}">Deceased Persons</a>
@@ -87,6 +97,12 @@
                                 <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
                             </li>
                             @endcan
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/contact') }}">{{ __('Contact Us') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('settings') }}">{{ __('Settings') }}</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

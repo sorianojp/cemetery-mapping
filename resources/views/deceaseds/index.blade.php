@@ -2,6 +2,8 @@
 
 @section('content')
    <div class="container my-5">
+
+        <img src="{{ asset('images/map.jpg') }}" class="img-fluid">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 {{ $message }}
@@ -14,9 +16,10 @@
                     <th>Name</th>
                     <th>Born</th>
                     <th>Died</th>
-                    <th>Grave</th>
                     <th>Lot</th>
                     <th>Sector</th>
+                    <th>Grave</th>
+                    <th>Action</th>
 
                 </tr>
             </thead>
@@ -26,9 +29,10 @@
                     <td>{{ $person->full_name }}</td>
                     <td>{{ $person->born }}</td>
                     <td>{{ $person->died }}</td>
-                    <td>{{ $person->grave->id }}</td>
                     <td>{{ $person->grave->sector->lot->name }}</td>
                     <td>{{ $person->grave->sector->name }}</td>
+                    <td>{{ $person->grave->id }}</td>
+                    <td> <a class="btn btn-sm btn-secondary" href="{{ route('deceaseds.show', $person->id) }}">Show</a></td>
                 </tr>
             @endforeach
             </tbody>

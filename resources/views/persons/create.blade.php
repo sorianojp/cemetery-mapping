@@ -17,7 +17,8 @@
 
         <form action="{{ route('persons.store', $grave) }}" method="POST">
             @csrf
-            <h1>Grave {{ $grave->id }}</h1>
+            <!-- <h1>Grave {{ $grave->id }}</h1> -->
+ 
 
             <div class="row">
                 <div class="col-sm-5">

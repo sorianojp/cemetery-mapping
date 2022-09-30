@@ -12,8 +12,8 @@
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Lot</th>
+                <th>Sector Name</th>
+                <th>Lot Name</th>
                 <th>Graves</th>
                 <th>Action</th>
 

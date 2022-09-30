@@ -17,15 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/deceased', 'GuestController@deceased')->name('deceased');
-
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('change-password','ChangePasswordController@index')->name('settings');
+    Route::post('change-password','ChangePasswordController@store')->name('change.password');
+    Route::get('/deceaseds', 'DeceasedController@index')->name('deceaseds.index');
+    Route::get('/deceaseds/{person}', 'DeceasedController@show')->name('deceaseds.show');
     Route::resource('lots','LotController');
     Route::resource('sectors','SectorController');
     Route::get('/persons', 'PersonController@index')->name('persons.index');
