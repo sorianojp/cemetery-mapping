@@ -7,15 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Forest Lake') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <title>Forest Lake - Cemetery Mapping</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}">
 
     <style>
               /* Sticky footer styles
@@ -37,14 +33,14 @@
       }
     </style>
     @yield('styles')
-    
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.png') }}" width="50" height="50" alt="">
+                    <img src="{{ asset('images/logo.png') }}" width="50" height="50" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -72,7 +68,7 @@
                         @else
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
-                            </li>                   
+                            </li>
                             @can('user')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('deceaseds.index') }}">Deceased Persons</a>
@@ -137,7 +133,7 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/datatables.js') }}"></script>
     <script>
         $(document).ready( function () {
             $('#deceased').DataTable();

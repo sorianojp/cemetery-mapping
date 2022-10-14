@@ -47,7 +47,7 @@
 
       @media (pointer: coarse) and (hover: none) {
       header {
-          background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+        background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
       }
 
       header video {
@@ -92,7 +92,7 @@
       </div>
       <div class="col-md-4">
             <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-primary text-center">
                 PARK INFORMATION
             </div>
             <div class="card-body">

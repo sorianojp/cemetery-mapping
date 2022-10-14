@@ -8,7 +8,7 @@
             </div>
         @endif
 
-        <a class="btn btn-success my-2" href="{{ route('sectors.graves.create', $sector) }}">Add</a>
+        <a class="btn btn-primary my-2" href="{{ route('sectors.graves.create', $sector) }}">Add</a>
         <div>
 
             @foreach ($sector->graves as $grave)

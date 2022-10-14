@@ -11,7 +11,7 @@
   </div>
   @endif
 
-  <a class="btn btn-success my-2" href="{{ route('users.create') }}">Create</a>
+  <a class="btn btn-primary my-2" href="{{ route('users.create') }}">Create</a>
     <table class="table table-bordered">
       <tr>
         <th>No</th>
