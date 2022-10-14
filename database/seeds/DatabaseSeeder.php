@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             CreateAdminUserSeeder::class,
             CreateStaffSeeder::class,
             CreateUserSeeder::class,
-            CreateLotSeeder::class
+            CreateLotSeeder::class,
+            CreateSectorSeeder::class
         ]);
     }
 }
