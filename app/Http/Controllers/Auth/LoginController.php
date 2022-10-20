@@ -40,24 +40,30 @@ class LoginController extends Controller
     }
 
 
-    public function login(Request $request)
+    public function username()
     {   
-        $input = $request->all();
-  
-        $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-  
-        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if(auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])))
-        {
-            return redirect()->route('home');
-        }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
-        }
+        $login = request()->input('identity');
+
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        request()->merge([$field => $login]);
+
+        return $field;
           
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $messages = [
+            'identity.required' => 'Email or Username cannot be empty!',
+            'password.required' => 'Password Cannot be empty!'
+        ];
+
+        $request->validate([
+            'identity' => ['required', 'string'],
+            'password' => ['required', 'string'],
+            'email' => ['string', 'exists:users'],
+            'username' => ['string', 'exists:users'],
+        ], $messages);
     }
     
 }

@@ -49,11 +49,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        if (isset($data['username'])){
+            $data['username'] = trim(strtolower($data['username']));
+        }
+        if (isset($data['email'])){
+            $data['email'] = trim(strtolower($data['email']));
+        }
         return Validator::make($data, [
             'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
             'mi' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:40', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -71,8 +77,8 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'firstname' => $data['firstname'],
             'mi' => $data['mi'],
-            'username' => $data['username'],
-            'email' => $data['email'],
+            'username' => trim(strtolower($data['username'])),
+            'email' => trim(strtolower($data['email'])),
             'password' => Hash::make($data['password']),
         ]);
 
