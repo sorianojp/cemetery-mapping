@@ -7,13 +7,19 @@
         <div class="col-sm-12">
             <div class="form-group">
                 <label>Name:</label>
-                {{ $user->name }}
+                {{ $user->full_name }}
             </div>
         </div>
         <div class="col-sm-12">
             <div class="form-group">
                 <label>Email:</label>
                 {{ $user->email }}
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Username:</label>
+                {{ $user->username }}
             </div>
         </div>
         <div class="col-sm-12">
