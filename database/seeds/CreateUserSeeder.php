@@ -16,6 +16,7 @@ class CreateUserSeeder extends Seeder
             'firstname' => 'Juan',
             'mi' => 'D',
         	'email' => 'delacruz@gmail.com',
+            'username' => 'user',
         	'password' => bcrypt('password')
         ]);
 

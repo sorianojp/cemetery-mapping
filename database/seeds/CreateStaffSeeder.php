@@ -16,6 +16,7 @@ class CreateStaffSeeder extends Seeder
             'firstname' => 'John',
             'mi' => 'D',
         	'email' => 'doe@gmail.com',
+            'username' => 'staff',
         	'password' => bcrypt('password')
         ]);
 
