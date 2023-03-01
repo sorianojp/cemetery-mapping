@@ -13,13 +13,14 @@ class CreateSectorSeeder extends Seeder
     public function run()
     {
         $lot1 = [
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G'
+            'EMERALD',
+            'RUBY',
+            'GARNET',
+            'AMETHYST',
+            'DIAMOND 1',
+            'DIAMOND 2',
+            'PEARL',
+            'OPAL'
          ];
 
          foreach ($lot1 as $data) {
@@ -27,14 +28,10 @@ class CreateSectorSeeder extends Seeder
          }
 
          $lot2 = [
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G',
-            'H'
+            'CITRINE',
+            'SAPPHIRE',
+            'PERIDOT',
+            'TOPAZ'
          ];
 
          foreach ($lot2 as $data) {
@@ -43,37 +40,19 @@ class CreateSectorSeeder extends Seeder
 
 
          $lot3 = [
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G',
-            'H',
-            'I'
+            'ZIRCON',
+            'ONYX',
+            'ALEXANDRITE',
+            'SARDONYX',
+            'AQUAMARINE',
+            'TURQUOISE',
+            'TOURMALINE',
+            'MOONSTONE'
          ];
 
          foreach ($lot3 as $data) {
               Sector::create(['name' => $data, 'lot_id' => '3']);
          }
 
-
-
-         $lot4 = [
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G',
-            'H',
-            'I'
-         ];
-
-         foreach ($lot4 as $data) {
-              Sector::create(['name' => $data, 'lot_id' => '4']);
-         }
     }
 }

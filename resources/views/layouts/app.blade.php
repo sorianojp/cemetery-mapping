@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Forest Lake - Cemetery Mapping</title>
+    <title>Garden of Eden - Cemetery Mapping</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
@@ -40,7 +40,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo.png') }}" width="50" height="50" alt="">
+                    <img src="{{ asset('images/logo.png') }}" width="50" height="50" alt=""> Garden of Eden
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -127,7 +127,7 @@
         </main>
         <footer class="footer">
         <div class="container">
-            <span class="text-muted">© Copyright 2022 Forest Lake | All Rights Reserved</span>
+            <span class="text-muted">© Copyright 2022 Garden of Eden | All Rights Reserved</span>
         </div>
         </footer>
     </div>
