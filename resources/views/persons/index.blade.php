@@ -3,6 +3,7 @@
 @section('content')
 <div class="container my-5">
 <h1 class="text-center font-weight-bold">MAP LEGEND</h1>
+@include('layouts.map')
 <img src="{{ asset('images/map.jpg') }}" class="img-fluid">
 </div>
    <div class="container-fluid my-5">
