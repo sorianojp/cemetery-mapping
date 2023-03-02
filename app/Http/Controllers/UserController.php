@@ -8,7 +8,8 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
-    
+use Illuminate\Support\Arr;
+
 class UserController extends Controller
 {
     function __construct()
@@ -32,8 +33,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'lastname' => 'required',
+            'firstname' => 'required',
+            'mi' => 'required',
             'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
             'password' => 'required|same:confirm-password',
             'roles' => 'required'
         ]);
@@ -66,8 +70,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'lastname' => 'required',
+            'firstname' => 'required',
+            'mi' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
+            'username' => 'required|unique:users,username,'.$id,
             'password' => 'same:confirm-password',
             'roles' => 'required'
         ]);
@@ -76,7 +83,7 @@ class UserController extends Controller
         if(!empty($input['password'])){ 
             $input['password'] = Hash::make($input['password']);
         }else{
-            $input = array_except($input,array('password'));    
+            $input = Arr::except($input,array('password'));  
         }
     
         $user = User::find($id);

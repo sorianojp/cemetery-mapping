@@ -6,13 +6,13 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="form-group">
-                <strong>Name:</strong>
+                <label>Name:</label>
                 {{ $role->name }}
             </div>
         </div>
         <div class="col-sm-12">
             <div class="form-group">
-                <strong>Permissions:</strong>
+                <label>Permissions:</label>
                 @if(!empty($rolePermissions))
                     @foreach($rolePermissions as $v)
                         <label class="label label-success">{{ $v->name }},</label>

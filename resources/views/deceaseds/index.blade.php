@@ -1,13 +1,15 @@
 @extends('layouts.app')
- 
+
 @section('content')
    <div class="container my-5">
+
+        <img src="{{ asset('images/map.jpg') }}" class="img-fluid mb-4">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 {{ $message }}
             </div>
         @endif
-        
+
         <table class="table table-bordered" id="deceased">
             <thead>
                 <tr>
@@ -16,6 +18,8 @@
                     <th>Died</th>
                     <th>Lot</th>
                     <th>Sector</th>
+                    <th>Grave</th>
+                    <th>Action</th>
 
                 </tr>
             </thead>
@@ -25,12 +29,14 @@
                     <td>{{ $person->full_name }}</td>
                     <td>{{ $person->born }}</td>
                     <td>{{ $person->died }}</td>
-                    <td>{{ $person->sector->lot->name }}</td>
-                    <td>{{ $person->sector->name }}</td>
+                    <td>{{ $person->grave->sector->lot->name }}</td>
+                    <td>{{ $person->grave->sector->name }}</td>
+                    <td>{{ $person->grave->id }}</td>
+                    <td> <a class="btn btn-sm btn-secondary" href="{{ route('deceaseds.show', $person->id) }}">Show</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
-      
+
 @endsection

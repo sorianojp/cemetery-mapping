@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @can('user')
+        @include('user-dashboard');
+    @endcan
+
     @can('staff')
-    @include('staff-dashboard');
+        @include('staff-dashboard');
     @endcan
 
     @can('admin')

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-  
+
 @section('content')
 
 
@@ -14,10 +14,12 @@
                 </ul>
             </div>
         @endif
-        
-        <form action="{{ route('persons.store') }}" method="POST">
+
+        <form action="{{ route('persons.store', $grave) }}" method="POST">
             @csrf
-        
+            <!-- <h1>Grave {{ $grave->id }}</h1> -->
+ 
+
             <div class="row">
                 <div class="col-sm-5">
                     <div class="form-group">
@@ -49,21 +51,12 @@
                         <input type="date" name="died" class="form-control">
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Select Sector</label>
-                        <select class="form-control" name="sector_id">
-                        @foreach ($sectors as $sector)
-                        <option value="{{ $sector->id }}">{{ $sector->name }} | {{ $sector->lot->name }}</option>
-                        @endforeach
-                        </select>
-                    </div>
-                </div>
+
                 <div class="col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
-        
+
         </form>
 </div>
 @endsection

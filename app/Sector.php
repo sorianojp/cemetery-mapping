@@ -17,4 +17,9 @@ class Sector extends Model
     public function persons(){
         return $this->hasMany('App\Person');
     }
+
+    public function graves()
+    {
+        return $this->hasMany('App\Grave');
+    }
 }
