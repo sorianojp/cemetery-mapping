@@ -72,7 +72,7 @@
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
         <h1 class="display-3">FOREST LAKE <span class="display-4">San Carlos</span></h1>
-        <p class="lead mb-0">Mapping and Information System</p>
+        <p class="lead mb-0">"A Better Place"</p>
       </div>
     </div>
   </div>
