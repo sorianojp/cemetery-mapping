@@ -71,13 +71,8 @@
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-<<<<<<< HEAD
-        <h1 class="display-3">FOREST LAKE <span class="display-4">San Carlos</span></h1>
-        <p class="lead mb-0">"A Better Place"</p>
-=======
         <h1 class="display-4 font-weight-bold">GARDEN OF EDEN</h1>
         <p class="lead mb-0">Mapping and Information System</p>
->>>>>>> 1fe3629812d46e8762281a895faaa594629b9c1f
       </div>
     </div>
   </div>
