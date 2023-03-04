@@ -6,18 +6,18 @@
   <img src="{{ asset('images/aboutheader.jpg') }}" class="img-fluid" >
 </header>
 
-<section class="my-5">
+<section class="my-5 text-white">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 shadow p-3 mx-auto">
         <h2>Vision</h2>
         <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 shadow p-3 mx-auto">
         <h2>Mission</h2>
         <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 shadow p-3 mx-auto">
         <h2>Goals</h2>
         <p>And lastly this, the third column of representative placeholder content.</p>
       </div><!-- /.col-lg-4 -->
@@ -66,7 +66,7 @@
                   </div>
                 </div>
             </div>
-            <div class="col-sm-12 my-3">
+            <div class="col-sm-12 my-3 text-white">
               <h3>Comfortable Amenities</h3>
             <ul>
               <li>Spacious Chapel</li>

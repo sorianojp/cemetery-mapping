@@ -7,7 +7,7 @@
 </header>
 
 <!-- Page section example for content below the video header -->
-<section class="my-5">
+<section class="my-5 p-5">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">

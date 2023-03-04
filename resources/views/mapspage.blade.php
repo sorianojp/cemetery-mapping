@@ -6,11 +6,11 @@
     <img src="{{ asset('images/mapheader.jpg') }}" class="img-fluid" >
 </header>
 <!-- Page section example for content below the video header -->
-<section class="my-5">
+<section class="my-5 text-white">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        <h3>PHASE 1</h3>
+      <div class="col-sm-4 shadow p-3">
+        <h3 class="font-weight-bold">PHASE 1</h3>
         <p>EMERALD<p>
         <p>RUBY<p>
         <p>GARNET<p>
@@ -20,15 +20,15 @@
         <p>PEARL<p>
         <p>OPAL<p>
       </div>
-      <div class="col-sm-4">
-        <h3>PHASE 2</h3>
+      <div class="col-sm-4 shadow p-3">
+        <h3 class="font-weight-bold">PHASE 2</h3>
         <p>CITRINE<p>
         <p>SAPPHINE<p>
         <p>PERIDOT<p>
         <p>TOPAZ<p>
       </div>
-      <div class="col-sm-4">
-        <h3>PHASE 3</h3>
+      <div class="col-sm-4 shadow p-3">
+        <h3 class="font-weight-bold">PHASE 3</h3>
         <p>ZIRCON <p>
         <p>ONYX<p>
         <p>ALEXANDRITE<p>
