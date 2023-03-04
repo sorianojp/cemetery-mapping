@@ -31,6 +31,13 @@
       line-height: 60px; /* Vertically center the text there */
       background-color: #f5f5f5;
       }
+        body {
+        background: url('{{ asset('images/bg.jpg') }}') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        }
     </style>
     @yield('styles')
 
@@ -122,9 +129,25 @@
             </div>
         </nav>
 
+        <ul class="nav justify-content-center bg-white p-3">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/') }}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/lotspage') }}">Lots</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/mapspage') }}">Maps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/contactuspage') }}">Contact Us</a>
+            </li>
+        </ul>
+
         <main>
             @yield('content')
         </main>
+     
         <footer class="footer">
         <div class="container">
             <span class="text-muted">© Copyright 2022 Garden of Eden | All Rights Reserved</span>
