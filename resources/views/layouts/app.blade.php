@@ -88,6 +88,9 @@
                             @endcan
                             @can('admin')
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('deceased') }}">Deceased</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('lots.index') }}">Lots</a>
                             </li>
                             <li class="nav-item">

@@ -34,6 +34,7 @@ Route::get('/contact', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/deceased', 'HomeController@deceased')->name('deceased');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('change-password','ChangePasswordController@index')->name('settings');
