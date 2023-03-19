@@ -43,4 +43,10 @@ class User extends Authenticatable
     {
         return "{$this->lastname}, {$this->firstname} {$this->mi}";
     }
+
+    public function people()
+    {
+        return $this->belongsToMany('App\Person');
+    }
+
 }

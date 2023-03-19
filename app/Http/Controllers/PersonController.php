@@ -6,6 +6,7 @@ use App\Grave;
 use App\Lot;
 use App\Sector;
 use App\Person;
+use App\User;
 use Illuminate\Http\Request;
 
 class PersonController extends Controller
@@ -24,7 +25,9 @@ class PersonController extends Controller
 
     public function create(Grave $grave)
     {
-        return view('persons.create', compact('grave'));
+        $users = User::all();
+
+        return view('persons.create', compact('grave', 'users'));
     }
 
     public function store(Request $request, Grave $grave)
@@ -37,14 +40,45 @@ class PersonController extends Controller
             'died' => 'required'
         ]);
 
-        $grave->person()->create($request->all());
+        $person = $grave->person()->create($request->all());
+
+        $relatives = $request->input('relatives', []);
+        $person->users()->sync($relatives);
 
         return redirect()->route('persons.index')
                         ->with('success', 'Success!.');
     }
 
+
+
     public function show(Person $person)
     {
         return view('persons.show', compact('person'));
     }
+
+    public function edit(Person $person)
+    {
+        $users = User::all();
+        return view('persons.edit', compact('person', 'users'));
+    }
+
+    public function update(Request $request, Person $person)
+    {
+        $request->validate([
+            'lastname' => 'required',
+            'firstname' => 'required',
+            'mi' => 'required',
+            'born' => 'required',
+            'died' => 'required'
+        ]);
+
+        $person->update($request->all());
+
+        $relatives = $request->input('relatives', []);
+        $person->users()->sync($relatives);
+
+        return redirect()->route('persons.show', $person)
+                        ->with('success', 'Person details have been updated successfully.');
+    }
+
 }

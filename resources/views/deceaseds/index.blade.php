@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($persons as $person)
+            @foreach ($people as $person)
                 <tr>
                     <td>{{ $person->full_name }}</td>
                     <td>{{ $person->born }}</td>

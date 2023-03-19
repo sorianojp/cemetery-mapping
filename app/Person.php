@@ -19,4 +19,11 @@ class Person extends Model
     {
         return "{$this->lastname}, {$this->firstname} {$this->mi}";
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
+
 }

@@ -78,7 +78,7 @@
                             </li>
                             @can('user')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('deceaseds.index') }}">Deceased Persons</a>
+                                <a class="nav-link" href="{{ route('deceaseds.index') }}">My Relatives</a>
                             </li>
                             @endcan
                             @can('staff')

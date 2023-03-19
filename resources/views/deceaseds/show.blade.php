@@ -27,6 +27,7 @@
                 <h1 class="font-weight-bold">{{ $person->full_name }}</h1>
                 <h5 class="font-weight-bold">BORN: {{ \Carbon\Carbon::parse($person->born)->format('M-d-Y')}}</h5>
                 <h5 class="font-weight-bold">DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</h5>
+                <h5 class="font-weight-bold">LOCATION: {{ $person->grave->sector->lot->name }} {{ $person->grave->sector->name }} GRAVE NO {{ $person->grave->id }}</h5>
             </div>
         </div>
         <div class="d-flex justify-content-end">
