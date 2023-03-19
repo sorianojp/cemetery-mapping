@@ -26,4 +26,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function deceased()
+    {
+        $persons = Person::all();
+        return view('deceased', compact('persons'));
+    }
+
+
 }

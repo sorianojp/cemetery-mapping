@@ -3,8 +3,7 @@
 @section('content')
 <div class="container my-5">
 <h1 class="text-center font-weight-bold">MAP LEGEND</h1>
-@include('layouts.map')
-<img src="{{ asset('images/map.jpg') }}" class="img-fluid">
+<img src="{{ asset('images/map.jpg') }}" class="img-fluid img-thumbnail">
 </div>
    <div class="container-fluid my-5">
         @if ($message = Session::get('success'))
@@ -21,7 +20,9 @@
                         <div class="row">
                             @foreach ($lot->sectors as $sector)
                             <div class="col-sm-6">
-                                <p class="font-weight-light text-white">{{ $sector->name }}</p>
+                                
+                                    <a href="{{ route('sectors.graves', $sector) }}" class="btn btn-sm btn-primary">{{ $sector->name }}</a>
+                                
                                 <div class="p-2 bg-success rounded-lg my-1">
                                     <p class="font-weight-light text-center text-white">Graves</p>
                                     @foreach ($sector->graves as $grave)

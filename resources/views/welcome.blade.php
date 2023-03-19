@@ -1,111 +1,84 @@
 @extends('layouts.app')
 @section('styles')
-    <style>
-      header {
-      position: relative;
-      background-color: black;
-      height: 75vh;
-      min-height: 25rem;
-      width: 100%;
-      overflow: hidden;
-      }
-
-      header video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: 0;
-      -ms-transform: translateX(-50%) translateY(-50%);
-      -moz-transform: translateX(-50%) translateY(-50%);
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      }
-
-      header .container {
-      position: relative;
-      z-index: 2;
-      }
-
-      header .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: black;
-      opacity: 0.5;
-      z-index: 1;
-      }
-
-      /* Media Query for devices withi coarse pointers and no hover functionality */
-
-      /* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
-
-      @media (pointer: coarse) and (hover: none) {
-      header {
-        background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
-      }
-
-      header video {
-          display: none;
-      }
-      }
-  </style>
 @endsection
 @section('content')
 <header>
-
-  <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
-  <div class="overlay"></div>
-
-  <!-- The HTML5 video element that will create the background video on the header -->
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="{{ asset('videos/video.mp4') }}" type="video/mp4">
-  </video>
-
-  <!-- The header content -->
-  <div class="container h-100">
-    <div class="d-flex h-100 text-center align-items-center">
-      <div class="w-100 text-white">
-        <h1 class="display-4 font-weight-bold">GARDEN OF EDEN</h1>
-        <p class="lead mb-0">Mapping and Information System</p>
-      </div>
-    </div>
-  </div>
+  <img src="{{ asset('images/aboutheader.jpg') }}" class="img-fluid" >
 </header>
 
+<section class="my-5 text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 shadow p-3 mx-auto">
+        <h2>Vision</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 shadow p-3 mx-auto">
+        <h2>Mission</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 shadow p-3 mx-auto">
+        <h2>Goals</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+      </div><!-- /.col-lg-4 -->
+    </div>
+  </div>
+</section>
 <!-- Page section example for content below the video header -->
-<section class="my-5">
+<section class="my-5 p-5">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <h1>Comfortable Amenities</h1>
-        <ul>
-          <li>Spacious Chapel</li>
-          <li>Clean Comfort Rooms</li>
-          <li>24-Hour Security System with CCTV</li>
-          <li>Spacious Concrete Road System</li>
-          <li>Convenient Car Parking</li>
-          <li>Well-Lighted Park</li>
-          <li>Well-Manicured Green Grass Shaded by Tall Palm Trees</li>
-        </ul>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ asset('images/carousel/1.jpg') }}" class="d-block w-100 img-thumbnail" alt="1">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ asset('images/carousel/2.jpg') }}" class="d-block w-100 img-thumbnail" alt="2">
+            </div>
+            <div class="carousel-item">
+              <img src="{{ asset('images/carousel/3.jpg') }}" class="d-block w-100 img-thumbnail" alt="3">
+            </div>
+          </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </button>
+        </div>
       </div>
       <div class="col-md-4">
-            <div class="card">
-            <div class="card-header bg-primary text-center text-white">
-                PARK INFORMATION
+        <div class="row">
+            <div class="col-sm-12 my-3">
+                <div class="card">
+                  <div class="card-header bg-primary text-center text-white">
+                      PARK INFORMATION
+                  </div>
+                  <div class="card-body">
+                      <div><span class="font-weight-bold">Address:</span> San Miguel, Calasiao, Pangasinan</div>
+                      <div><span class="font-weight-bold">E-mail:</span> gardenofedenmemorialpark@yahoomail.com</div>
+                      <div><span class="font-weight-bold">Phone:</span> (075) 517-3677 / 0915-601-5053 / 0925-760-4046 / 0915-601-5088</div>
+                      <div class="mt-2"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#vicinity">VIEW VICINITY MAP</button></div>
+                  </div>
+                </div>
             </div>
-            <div class="card-body">
-                <div><span class="font-weight-bold">Address:</span> San Miguel, Calasiao, Pangasinan</div>
-                <div><span class="font-weight-bold">E-mail:</span> gardenofedenmemorialpark@yahoomail.com</div>
-                <div><span class="font-weight-bold">Phone:</span> (075) 517-3677 / 0915-601-5053 / 0925-760-4046 / 0915-601-5088</div>
-                <div class="mt-2"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#vicinity">VIEW VICINITY MAP</button></div>
-            </div>
-            </div>
+            <div class="col-sm-12 my-3 text-white">
+              <h3>Comfortable Amenities</h3>
+            <ul>
+              <li>Spacious Chapel</li>
+              <li>Clean Comfort Rooms</li>
+              <li>24-Hour Security System with CCTV</li>
+              <li>Spacious Concrete Road System</li>
+              <li>Convenient Car Parking</li>
+              <li>Well-Lighted Park</li>
+              <li>Well-Manicured Green Grass Shaded by Tall Palm Trees</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>

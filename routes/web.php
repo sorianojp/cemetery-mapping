@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/lotspage', function () {
+    return view('lotspage');
+});
+Route::get('/mapspage', function () {
+    return view('mapspage');
+});
+Route::get('/contactuspage', function () {
+    return view('contactuspage');
+});
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -25,6 +34,7 @@ Route::get('/contact', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/deceased', 'HomeController@deceased')->name('deceased');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('change-password','ChangePasswordController@index')->name('settings');
@@ -40,4 +50,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('sectors.graves', 'GraveController')->shallow();
+    Route::get('/sector/{sector}/graves', 'GraveController@showSectorGraves')->name('sectors.graves');
 });

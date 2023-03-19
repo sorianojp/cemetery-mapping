@@ -10,20 +10,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3>Brgy. Tandoc, San Carlos City, Pangasinan, Philippine, 2420</h3>
+                            <h3>San Miguel, Calasiao, Pangasinan</h3>
                             <label>Address</label>
                         </div>
                         <div class="col-sm-12">
-                            <h3>09159551717</h3>
-                            <label>Mobile</label>
+                            <h3>(075) 517-3677 / 0915-601-5053 / 0925-760-4046 / 0915-601-5088</h3>
+                            <label>Phone</label>
                         </div>
                         <div class="col-sm-12">
-                            <h3>aldwinkennethsumook@yahoo.com</h3>
+                            <h3>gardenofedenmemorialpark@yahoomail.com</h3>
                             <label>Email</label>
-                        </div>
-                        <div class="col-sm-12">
-                            <h3>https://www.forestlakeparks.com/</h3>
-                            <label>Website</label>
                         </div>
                     </div>
                 </div>
