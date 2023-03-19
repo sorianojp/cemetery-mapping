@@ -20,7 +20,9 @@
                         <div class="row">
                             @foreach ($lot->sectors as $sector)
                             <div class="col-sm-6">
-                                <p class="font-weight-light text-white">{{ $sector->name }}</p>
+                                
+                                    <a href="{{ route('sectors.graves', $sector) }}" class="btn btn-sm btn-primary">{{ $sector->name }}</a>
+                                
                                 <div class="p-2 bg-success rounded-lg my-1">
                                     <p class="font-weight-light text-center text-white">Graves</p>
                                     @foreach ($sector->graves as $grave)

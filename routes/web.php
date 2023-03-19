@@ -50,4 +50,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('sectors.graves', 'GraveController')->shallow();
+    Route::get('/sector/{sector}/graves', 'GraveController@showSectorGraves')->name('sectors.graves');
 });

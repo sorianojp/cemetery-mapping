@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class GraveController extends Controller
 {
+
+    public function showSectorGraves(Sector $sector)
+    {
+        $graves = $sector->graves;
+        return view('graves.sector', compact('graves', 'sector'));
+    }
+
     /**
      * Display a listing of the resource.
      *
