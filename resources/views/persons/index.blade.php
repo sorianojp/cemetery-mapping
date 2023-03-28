@@ -3,7 +3,7 @@
 @section('content')
 <div class="container my-5">
 <h1 class="text-center font-weight-bold">MAP LEGEND</h1>
-<img src="{{ asset('images/map.jpg') }}" class="img-fluid img-thumbnail">
+<img src="{{ asset('images/wholemap.jpg') }}" class="img-fluid img-thumbnail">
 </div>
    <div class="container-fluid my-5">
         @if ($message = Session::get('success'))
@@ -27,10 +27,11 @@
                                     <p class="font-weight-light text-center text-white">Graves</p>
                                     @foreach ($sector->graves as $grave)
                                         @if($grave->person)
-                                            <a href="{{ route('persons.show', $grave->person) }}" class="btn btn-sm btn-primary mx-1 my-1" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}">
+                                        <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="btn btn-sm btn-primary mx-1 my-1" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}">
                                                 {{ $loop->iteration }}
-                                                <!-- {{ $grave->id }} -->
-                                            </a>
+                                        </a>
+
+
                                         @else
                                             <a href="{{ route('persons.create', $grave) }}" class="btn btn-sm btn-dark mx-1 my-1">
                                                 {{ $loop->iteration }}

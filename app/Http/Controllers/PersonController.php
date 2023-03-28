@@ -51,10 +51,12 @@ class PersonController extends Controller
 
 
 
-    public function show(Person $person)
+    public function show(Person $person, $grave_number)
     {
-        return view('persons.show', compact('person'));
+        return view('persons.show', compact('person', 'grave_number'));
     }
+    
+
 
     public function edit(Person $person)
     {

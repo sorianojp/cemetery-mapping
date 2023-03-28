@@ -3,7 +3,7 @@
 @section('content')
    <div class="container my-5">
 
-        <img src="{{ asset('images/map.jpg') }}" class="img-fluid mb-4">
+        <img src="{{ asset('images/wholemap.jpg') }}" class="img-fluid mb-4">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 {{ $message }}

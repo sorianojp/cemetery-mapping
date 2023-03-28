@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/graves/{grave}/person/create', 'PersonController@create')->name('persons.create');
     Route::post('/graves/{grave}/person/store', 'PersonController@store')->name('persons.store');
     Route::put('/persons/{person}', 'PersonController@update')->name('persons.update');
-    Route::get('/persons/{person}/show', 'PersonController@show')->name('persons.show');
+    Route::get('/persons/{person}/{grave_number}', 'PersonController@show')->name('persons.show');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('sectors.graves', 'GraveController')->shallow();
