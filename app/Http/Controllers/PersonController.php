@@ -79,7 +79,7 @@ class PersonController extends Controller
         $relatives = $request->input('relatives', []);
         $person->users()->sync($relatives);
 
-        return redirect()->route('persons.show', $person)
+        return redirect()->route('persons.index', $person)
                         ->with('success', 'Person details have been updated successfully.');
     }
 
