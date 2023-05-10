@@ -16,6 +16,7 @@ class CreateGravesTable extends Migration
         Schema::create('graves', function (Blueprint $table) {
             $table->id();
             $table->foreignId('sector_id')->constrained()->cascadeOnDelete();
+            $table->text('position')->nullable();
             $table->timestamps();
         });
     }

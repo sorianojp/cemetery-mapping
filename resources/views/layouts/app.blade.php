@@ -150,7 +150,7 @@
         <main>
             @yield('content')
         </main>
-     
+
         <footer class="footer">
         <div class="container">
             <span class="text-muted">© Copyright 2022 Garden of Eden | All Rights Reserved</span>

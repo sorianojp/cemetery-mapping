@@ -1,5 +1,13 @@
 @extends('layouts.app')
-
+@section('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" />
+<style>
+    .grave {
+        position: absolute;
+        cursor: move;
+    }
+</style>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -58,12 +66,12 @@
                 <h1 class="my-5">{{ $sector->name }} Graves</h1>
                 @foreach($graves as $grave)
                     @if($grave->person)
-                    <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="p-5 btn btn-sm btn-primary mx-1 my-1" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}">
+                    <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="btn btn-sm btn-danger grave" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}" data-id="{{ $grave->id }}" style="left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                             {{ $loop->iteration }}
                             <!-- {{ $grave->id }} -->
                         </a>
                     @else
-                        <a href="{{ route('persons.create', $grave) }}" class="p-5 btn btn-sm btn-dark mx-1 my-1">
+                        <a href="{{ route('persons.create', $grave) }}" class="btn btn-sm btn-primary grave" data-id="{{ $grave->id }}" style="left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                             {{ $loop->iteration }}
                             <!-- {{ $grave->id }} -->
                         </a>
@@ -72,4 +80,37 @@
             </div>
         </div>
     </div>
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script>
+    $(function() {
+        $('.grave').draggable({
+            stop: function(event, ui) {
+                var graveId = $(this).data('id');
+                var position = ui.position;
+                // $.ajax({
+                //     url: '/graves/' + graveId + '/position',
+                //     method: 'PUT',
+                //     data: {
+                //         _token: '{{ csrf_token() }}',
+                //         position: position.left + ',' + position.top
+                //     }
+                // });
+                const form = new FormData()
+                form.append('position', `${position.left},${position.top}`)
+                var url = `/graves/${graveId}/position`;
+                axios.post(url, form).then(response => {
+                        console.log(response)
+                    }).catch(error => {
+                        console.log(error)
+                    })
+
+
+            }
+        });
+    });
+</script>
+
+@endsection
 @endsection

@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grave extends Model
 {
+    protected $fillable = [
+        'position'
+    ];
+
     public function sector(){
         return $this->belongsTo('App\Sector');
     }
