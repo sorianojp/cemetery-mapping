@@ -9,11 +9,11 @@
 </style>
 @endsection
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 @if($sector->name == 'EMERALD')
-                    <img src="{{ asset('images/phase1/EMERALD.jpg') }}" class="img-fluid">
+                    <img src="{{ asset('images/phase1/emerald.png') }}" class="img-fluid">
                     @elseif($sector->name == 'RUBY')
                     <img src="{{ asset('images/phase1/RUBY.jpg') }}" class="img-fluid">
                     @elseif($sector->name == 'GARNET')
@@ -66,15 +66,14 @@
                 <h1 class="my-5">{{ $sector->name }} Graves</h1>
                 @foreach($graves as $grave)
                     @if($grave->person)
-                    <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="btn btn-sm btn-danger grave" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}" data-id="{{ $grave->id }}" style="left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                    <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="bg-danger text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                             {{ $loop->iteration }}
-                            <!-- {{ $grave->id }} -->
-                        </a>
+                    </a>
                     @else
-                        <a href="{{ route('persons.create', $grave) }}" class="btn btn-sm btn-primary grave" data-id="{{ $grave->id }}" style="left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                    <a href="{{ route('persons.create', $grave) }}" class="bg-primary text-white grave" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                             {{ $loop->iteration }}
                             <!-- {{ $grave->id }} -->
-                        </a>
+                    </a>
                     @endif
                 @endforeach
             </div>
