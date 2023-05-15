@@ -14,8 +14,6 @@ class CreateLotSeeder extends Seeder
     {
         $lots = [
             'PHASE 1',
-            'PHASE 2',
-            'PHASE 3'
          ];
 
          foreach ($lots as $lot) {

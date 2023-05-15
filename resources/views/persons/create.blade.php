@@ -51,6 +51,24 @@
                         <input type="date" name="died" class="form-control">
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Payment</label>
+                        <select class="form-control" name="payment">
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" name="status">
+                        <option value=""></option>
+                        <option value="Reserved">Reserved</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-sm-12">
                     @foreach ($users as $user)
                         <div>

@@ -37,7 +37,9 @@ class PersonController extends Controller
             'firstname' => 'required',
             'mi' => 'required',
             'born' => 'required',
-            'died' => 'required'
+            'died' => 'required',
+            'payment' => 'nullable',
+            'status' => 'nullable',
         ]);
 
         $person = $grave->person()->create($request->all());
@@ -71,7 +73,9 @@ class PersonController extends Controller
             'firstname' => 'required',
             'mi' => 'required',
             'born' => 'required',
-            'died' => 'required'
+            'died' => 'required',
+            'payment' => 'nullable',
+            'status' => 'nullable',
         ]);
 
         $person->update($request->all());

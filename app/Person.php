@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     protected $fillable = [
-        'lastname', 'firstname', 'mi', 'born', 'died', 'grave_id'
+        'lastname', 'firstname', 'mi', 'born', 'died', 'grave_id', 'payment', 'status'
     ];
 
     public function grave(){

@@ -27,32 +27,5 @@ class CreateSectorSeeder extends Seeder
               Sector::create(['name' => $data, 'lot_id' => '1']);
          }
 
-         $lot2 = [
-            'CITRINE',
-            'SAPPHIRE',
-            'PERIDOT',
-            'TOPAZ'
-         ];
-
-         foreach ($lot2 as $data) {
-              Sector::create(['name' => $data, 'lot_id' => '2']);
-         }
-
-
-         $lot3 = [
-            'ZIRCON',
-            'ONYX',
-            'ALEXANDRITE',
-            'SARDONYX',
-            'AQUAMARINE',
-            'TURQUOISE',
-            'TOURMALINE',
-            'MOONSTONE'
-         ];
-
-         foreach ($lot3 as $data) {
-              Sector::create(['name' => $data, 'lot_id' => '3']);
-         }
-
     }
 }

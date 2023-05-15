@@ -90,13 +90,21 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <h2>Relatives</h2>
                 <ul>
                     @foreach($person->users as $relative)
                         <li>{{ $relative->full_name }}</li>
                     @endforeach
                 </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Status</h2>
+                <p>{{ $person->status }}</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Payment</h2>
+                <p>{{ $person->payment }}</p>
             </div>
         </div>
 </div>
