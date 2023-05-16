@@ -11,8 +11,7 @@
 @section('content')
 <div class="container-fluid my-5">
 <h1 class="text-center font-weight-bold">MAP</h1>
-
-<div style="width: 2476px; height: 2100px;"></div>
+<img src="{{ asset('images/phase1.png') }}" class="img-fluid">
 </div>
    <div class="container-fluid my-5">
         @if ($message = Session::get('success'))
@@ -23,29 +22,25 @@
         <div class="row">
                 @foreach ($lots as $lot)
                 <div class="col-sm-4 my-2">
-                    <h3 class="font-weight-bold text-center d-none">{{ $lot->name }}</h3>
+                    <h3 class="font-weight-bold text-center" style="opacity: 0;">{{ $lot->name }}</h3>
                     <div class="p-4 rounded-lg ">
-                    <p class="font-weight-light text-center text-white d-none">Sectors</p>
-                    <div style="width: 50px; height: 50px;"></div>
+                    <p class="font-weight-light text-center text-white" style="opacity: 0;">Sectors</p>
                         <div class="row">
                             @foreach ($lot->sectors as $sector)
                             <div class="col-sm-6">
-                            <div style="width: 50px; height: 50px;"></div>
-                                    <a href="{{ route('sectors.graves', $sector) }}" class="btn btn-sm btn-primary d-none">{{ $sector->name }}</a>
-                                
+                                    <a href="{{ route('sectors.graves', $sector) }}" class="btn btn-sm btn-primary" style="opacity: 0;">{{ $sector->name }}</a>
                                 <div class="p-2 rounded-lg my-1">
-                                <div style="width: 50px; height: 50px;"></div>
-                                    <p class="font-weight-light text-center text-white d-none">Graves</p>
+                                    <p class="font-weight-light text-center text-white" style="opacity: 0;">Graves</p>
                                     @foreach ($sector->graves as $grave)
                                         @if($grave->person)
-                                        <h1 class="text-center font-weight-bold grave" style="left: 530px; top: -2200px;">EMERALD</h1>
+                                        <!-- <h1 class="text-center font-weight-bold grave" style="left: 530px; top: -2200px;">EMERALD</h1>
                                         <h1 class="text-center font-weight-bold grave" style="left: 1000px; top: -2200px;">RUBY</h1>
                                         <h1 class="text-center font-weight-bold grave" style="left: 120px; top: -450px;">DIAMOND</h1>
                                         <h1 class="text-center font-weight-bold grave" style="left: 500px; top: -500px;">GARNET</h1>
                                         <h1 class="text-center font-weight-bold grave" style="left: 1000px; top: -500px;">AMETHYST</h1>
                                         <h1 class="text-center font-weight-bold grave" style="left: 1350px; top: -550px;">OPAL</h1>
                                         <h1 class="text-center font-weight-bold grave" style="left: 600px; top: -350px;">PEARL</h1>
-                                        <h1 class="text-center font-weight-bold grave border p-5" style="left: 770px; top: -1400px;">CHAPEL</h1>
+                                        <h1 class="text-center font-weight-bold grave border p-5" style="left: 770px; top: -1400px;">CHAPEL</h1> -->
                                         <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="bg-danger text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                                                 {{ $loop->iteration }}
                                         </a>
