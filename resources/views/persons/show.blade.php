@@ -21,12 +21,11 @@
                 {{ $message }}
             </div>
         @endif
-        <div>
+        <!-- <div>
             <a class="btn btn-secondary my-2" href="{{ route('persons.index') }}">Back</a>
-            <a href="{{ route('persons.edit', $person) }}" class="btn btn-primary">Edit</a>
-        </div>
+        </div> -->
         <div class="row">
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
                 @if($person->grave->sector->name == 'EMERALD')
                     <img src="{{ asset('images/phase1/EMERALD.jpg') }}" class="img-fluid">
                 @elseif($person->grave->sector->name == 'RUBY')
@@ -76,8 +75,9 @@
                 @else
                     <p>Location Image Not Set!</p>
                 @endif
-            </div>
-            <div class="col-sm-6">
+            </div> -->
+            <div class="col-sm-8">
+            <a href="{{ route('persons.edit', $person) }}" class="btn btn-primary my-2">Add Deceased</a>
                 <div class="lapida">
                     <img src="{{ asset('images/lapida.png') }}" alt="Snow" style="width:100%;">
                     <div class="centered">
@@ -88,24 +88,42 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-4">
+                <a href="{{ route('persons.owner', $person) }}" class="btn btn-primary my-2">Update</a>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p>Owner: {{ $person->owner_lastname }}, {{ $person->owner_firstname }} {{ $person->owner_mi }}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>Status: {{ $person->status }}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>Payment: {{ $person->payment }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row mt-5">
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <h2>Relatives</h2>
                 <ul>
                     @foreach($person->users as $relative)
                         <li>{{ $relative->full_name }}</li>
                     @endforeach
                 </ul>
-            </div>
-            <div class="col-md-4">
+            </div> -->
+            <!-- <div class="col-md-4">
                 <h2>Status</h2>
                 <p>{{ $person->status }}</p>
             </div>
             <div class="col-md-4">
                 <h2>Payment</h2>
                 <p>{{ $person->payment }}</p>
-            </div>
+            </div> -->
         </div>
 </div>
 @endsection

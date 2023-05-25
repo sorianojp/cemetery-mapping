@@ -18,9 +18,60 @@
         <form action="{{ route('persons.store', $grave) }}" method="POST">
             @csrf
             <!-- <h1>Grave {{ $grave->id }}</h1> -->
- 
-
             <div class="row">
+                <div class="col-sm-12">
+                    <h1>Owner</h1>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Lastname:</label>
+                        <input type="text" name="owner_lastname" class="form-control" placeholder="Lastname">
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Firstname:</label>
+                        <input type="text" name="owner_firstname" class="form-control" placeholder="Firstname">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Middle Initial:</label>
+                        <input type="text" name="owner_mi" class="form-control" placeholder="Middle Initial">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Payment</label>
+                        <select class="form-control" name="payment">
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" name="status">
+                        <option value=""></option>
+                        <option value="Reserved">Reserved</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class="col-sm-12">
+                    @foreach ($users as $user)
+                        <div>
+                            <input type="checkbox" name="relatives[]" value="{{ $user->id }}">
+                            <label>{{ $user->getFullNameAttribute() }}</label>
+                        </div>
+                    @endforeach
+                </div> -->
+            </div>
+
+            <div class="row my-5">
+                <div class="col-sm-12">
+                    <h1>Deceased Person</h1>
+                </div>
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label>Lastname:</label>
@@ -50,32 +101,6 @@
                         <label>Died:</label>
                         <input type="date" name="died" class="form-control">
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Payment</label>
-                        <select class="form-control" name="payment">
-                        <option value="Paid">Paid</option>
-                        <option value="Unpaid">Unpaid</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select class="form-control" name="status">
-                        <option value=""></option>
-                        <option value="Reserved">Reserved</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    @foreach ($users as $user)
-                        <div>
-                            <input type="checkbox" name="relatives[]" value="{{ $user->id }}">
-                            <label>{{ $user->getFullNameAttribute() }}</label>
-                        </div>
-                    @endforeach
                 </div>
                 <div class="col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>

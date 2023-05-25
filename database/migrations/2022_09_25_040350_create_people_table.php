@@ -16,11 +16,16 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
             $table->foreignId('grave_id')->nullable();
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('mi');
-            $table->string('born');
-            $table->string('died');
+            $table->string('owner_lastname')->nullable();
+            $table->string('owner_firstname')->nullable();
+            $table->string('owner_mi')->nullable();
+            $table->string('payment')->nullable();
+            $table->string('status')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('mi')->nullable();
+            $table->string('born')->nullable();
+            $table->string('died')->nullable();
             $table->timestamps();
         });
     }

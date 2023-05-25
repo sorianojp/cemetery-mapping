@@ -18,37 +18,43 @@
         <form method="POST" action="{{ route('persons.update', $person) }}">
                 @csrf
                 @method('PUT')
- 
 
             <div class="row">
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label>Lastname:</label>
-                        <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="{{ old('lastname', $person->lastname) }}">
+                        <input type="text" name="owner_lastname" class="form-control" placeholder="Lastname" value="{{ old('owner_lastname', $person->owner_lastname) }}">
                     </div>
                 </div>
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label>Firstname:</label>
-                        <input type="text" name="firstname" class="form-control" placeholder="Firstname" value="{{ old('firstname', $person->firstname) }}">
+                        <input type="text" name="owner_firstname" class="form-control" placeholder="Firstname" value="{{ old('owner_firstname', $person->owner_firstname) }}">
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label>Middle Initial:</label>
-                        <input type="text" name="mi" class="form-control" placeholder="Middle Initial" value="{{ old('mi', $person->mi) }}">
+                        <input type="text" name="owner_mi" class="form-control" placeholder="Middle Initial" value="{{ old('owner_mi', $person->owner_mi) }}">
                     </div>
                 </div>
-                <div class="col-sm-4">
+
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Born:</label>
-                        <input type="date" name="born" class="form-control" value="{{ old('born', $person->born) }}">
+                        <label>Payment</label>
+                        <select class="form-control" name="payment">
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Died:</label>
-                        <input type="date" name="died" class="form-control" value="{{ old('died', $person->died) }}">
+                        <label>Status</label>
+                        <select class="form-control" name="status">
+                        <option value=""></option>
+                        <option value="Reserved">Reserved</option>
+                        </select>
                     </div>
                 </div>
                 <!-- <div class="col-sm-6">

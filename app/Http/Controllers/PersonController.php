@@ -33,11 +33,14 @@ class PersonController extends Controller
     public function store(Request $request, Grave $grave)
     {
         $request->validate([
-            'lastname' => 'required',
-            'firstname' => 'required',
-            'mi' => 'required',
-            'born' => 'required',
-            'died' => 'required',
+            'owner_lastname' => 'nullable',
+            'owner_firstname' => 'nullable',
+            'owner_mi' => 'nullable',
+            'lastname' => 'nullable',
+            'firstname' => 'nullable',
+            'mi' => 'nullable',
+            'born' => 'nullable',
+            'died' => 'nullable',
             'payment' => 'nullable',
             'status' => 'nullable',
         ]);
@@ -66,14 +69,23 @@ class PersonController extends Controller
         return view('persons.edit', compact('person', 'users'));
     }
 
+    public function owner(Person $person)
+    {
+        $users = User::all();
+        return view('persons.owner', compact('person', 'users'));
+    }
+
     public function update(Request $request, Person $person)
     {
         $request->validate([
-            'lastname' => 'required',
-            'firstname' => 'required',
-            'mi' => 'required',
-            'born' => 'required',
-            'died' => 'required',
+            'owner_lastname' => 'nullable',
+            'owner_firstname' => 'nullable',
+            'owner_mi' => 'nullable',
+            'lastname' => 'nullable',
+            'firstname' => 'nullable',
+            'mi' => 'nullable',
+            'born' => 'nullable',
+            'died' => 'nullable',
             'payment' => 'nullable',
             'status' => 'nullable',
         ]);

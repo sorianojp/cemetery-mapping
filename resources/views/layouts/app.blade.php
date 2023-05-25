@@ -12,7 +12,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/buttons.dataTables.min.css') }}">
     <style>
               /* Sticky footer styles
       -------------------------------------------------- */
@@ -78,7 +78,7 @@
                             </li>
                             @can('user')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('deceaseds.index') }}">My Relatives</a>
+                                <a class="nav-link" href="{{ route('deceaseds.index') }}">Deceased Persons</a>
                             </li>
                             @endcan
                             @can('staff')
@@ -160,9 +160,16 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('js/datatables.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/buttons.print.min.js') }}"></script>
     <script>
-        $(document).ready( function () {
-            $('#deceased').DataTable();
+        $(document).ready(function() {
+            $('#deceased').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    'print'
+                ]
+            } );
         } );
     </script>
     <script>

@@ -48,13 +48,13 @@
                                         <h1 class="text-center font-weight-bold grave border p-5" style="left: 770px; top: -1400px;">CHAPEL</h1> -->
                                         
                                         @if ($grave->person->users->contains(Auth::user()->id))
-                                        <div class="bg-warning text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                                        <a href="{{ route('deceaseds.show', $grave->person->id) }}" class="bg-warning text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                                                 {{ $loop->iteration }}
-                                        </div>
+                                        </a>
                                         @else
-                                        <div class="bg-danger text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                                        <a href="{{ route('deceaseds.show', $grave->person->id) }}" class="bg-danger text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                                                 {{ $loop->iteration }}
-                                        </div>
+                                        </a>
                                         @endif
 
                                         @else

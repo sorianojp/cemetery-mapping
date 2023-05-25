@@ -21,11 +21,11 @@
                 {{ $message }}
             </div>
         @endif
-        <div>
+        <!-- <div>
           <a class="btn btn-secondary my-2" href="{{ route('deceaseds.index') }}">Back</a>
-        </div>
+        </div> -->
         <div class="row">
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
                 @if($person->grave->sector->name == 'EMERALD')
                     <img src="{{ asset('images/phase1/EMERALD.jpg') }}" class="img-fluid">
                 @elseif($person->grave->sector->name == 'RUBY')
@@ -75,8 +75,8 @@
                 @else
                     <p>Location Image Not Set!</p>
                 @endif
-            </div>
-            <div class="col-sm-6">
+            </div> -->
+            <div class="col-sm-8">
               <div class="lapida">
                 <img src="{{ asset('images/lapida.png') }}" alt="Snow" style="width:100%;">
                 <div class="centered">
@@ -86,6 +86,23 @@
                     <h5 class="font-weight-bold">LOCATION: {{ $person->grave->sector->lot->name }} {{ $person->grave->sector->name }} GRAVE NO {{ $person->grave->id }}</h5>
                 </div>
               </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p>Owner: {{ $person->owner_lastname }}, {{ $person->owner_firstname }} {{ $person->owner_mi }}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>Status: {{ $person->status }}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>Payment: {{ $person->payment }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 </div>
