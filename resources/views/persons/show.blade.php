@@ -105,9 +105,15 @@
                             <div class="col-sm-12">
                                 <p>Owner: {{ $person->owner_lastname }}, {{ $person->owner_firstname }} {{ $person->owner_mi }}</p>
                             </div>
-                            <div class="col-sm-12">
-                                <p>Status: {{ $person->status }}</p>
-                            </div>
+                            @if($person->status == 'Reserved')
+                                <div class="col-sm-12">
+                                    <p>Status: <span class="text-danger">{{ $person->status }}</span></p>
+                                </div>
+                            @else
+                                <div class="col-sm-12">
+                                    <p>Status: <span class="text-primary">Open</span></p>
+                                </div>
+                            @endif
                             @if($person->payment == 'Unpaid')
                                 <div class="col-sm-12">
                                     <p>Payment: <span class="text-danger">{{ $person->payment }}</span></p>
