@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label>Payment</label>
                         <select class="form-control" name="payment">
-                        <option value="Paid">Paid</option>
+                        <option value="Paid">Fully Paid</option>
                         <option value="Unpaid">Unpaid</option>
                         </select>
                     </div>

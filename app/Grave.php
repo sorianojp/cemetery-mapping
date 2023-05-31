@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Grave extends Model
 {
     protected $fillable = [
-        'position'
+        'position', 'price'
     ];
 
     public function sector(){

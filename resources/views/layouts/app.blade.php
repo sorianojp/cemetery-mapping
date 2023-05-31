@@ -85,6 +85,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('persons.index') }}">Deceased Persons</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('graves.price') }}">Grave Prices</a>
+                            </li>
                             @endcan
                             @can('admin')
                             <li class="nav-item">

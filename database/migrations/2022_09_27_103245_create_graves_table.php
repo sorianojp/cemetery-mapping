@@ -17,6 +17,7 @@ class CreateGravesTable extends Migration
             $table->id();
             $table->foreignId('sector_id')->constrained()->cascadeOnDelete();
             $table->text('position')->nullable();
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

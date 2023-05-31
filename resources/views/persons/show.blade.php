@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('styles')
-<style>
+<!-- <style>
 .lapida {
   position: relative;
   text-align: center;
@@ -12,7 +12,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-</style>
+</style> -->
 @endsection
 @section('content')
 <div class="container my-5">
@@ -76,9 +76,9 @@
                     <p>Location Image Not Set!</p>
                 @endif
             </div> -->
-            <div class="col-sm-8">
+            <div class="col-sm-4">
             <a href="{{ route('persons.edit', $person) }}" class="btn btn-primary my-2">Add Deceased</a>
-                <div class="lapida">
+                <!-- <div class="lapida">
                     <img src="{{ asset('images/lapida.png') }}" alt="Snow" style="width:100%;">
                     <div class="centered">
                         <p class="font-weight-bold">{{ $person->full_name }}</p>
@@ -86,9 +86,18 @@
                         <p>DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</p>
                         <p>LOCATION: <br>{{ $person->grave->sector->lot->name }}, {{ $person->grave->sector->name }}, GRAVE NO {{ $grave_number }}</p>
                     </div>
-                </div>
+                </div> -->
+               
+                    <img src="{{ asset('images/avatar.jpg') }}" class="img-fluid">
+                    <div>
+                        <p class="font-weight-bold">{{ $person->full_name }}</p>
+                        <p>BORN: {{ \Carbon\Carbon::parse($person->born)->format('M-d-Y')}}</p>
+                        <p>DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</p>
+                        <p>LOCATION: <br>{{ $person->grave->sector->lot->name }}, {{ $person->grave->sector->name }}, GRAVE NO {{ $grave_number }}</p>
+                    </div>
+             
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-8">
                 <a href="{{ route('persons.owner', $person) }}" class="btn btn-primary my-2">Update</a>
                 <div class="card">
                     <div class="card-body">
@@ -101,6 +110,9 @@
                             </div>
                             <div class="col-sm-12">
                                 <p>Payment: {{ $person->payment }}</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>Grave Price: {{ $person->grave->price }}</p>
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Grave;
 use App\Sector;
+use App\Lot;
 use Illuminate\Http\Request;
 
 class GraveController extends Controller
@@ -20,6 +21,24 @@ class GraveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function gravesprice()
+     {
+         $lots = Lot::paginate(10); 
+         return view('graves.price', compact('lots'));
+     }
+     public function updatePrice(Request $request, Grave $grave)
+     {
+         $validatedData = $request->validate([
+             'price' => 'required|numeric',
+         ]);
+ 
+         $grave->price = $validatedData['price'];
+         $grave->save();
+ 
+         return redirect()->back()->with('success', 'Price updated successfully!');
+     }
+
     public function index(Sector $sector)
     {
         return view('graves.index', compact('sector'));

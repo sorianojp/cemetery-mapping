@@ -43,18 +43,18 @@
                                         <h1 class="text-center font-weight-bold grave" style="left: 600px; top: -350px;">PEARL</h1>
                                         <h1 class="text-center font-weight-bold grave border p-5" style="left: 770px; top: -1400px;">CHAPEL</h1> -->
                                         @if ($grave->person->status == 'Reserved')
-                                        <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="bg-warning text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }} || Owner: {{ $grave->person->owner_lastname }}, {{ $grave->person->owner_firstname }} {{ $grave->person->owner_mi }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                                        <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="bg-warning text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }} || Owner: {{ $grave->person->owner_lastname }}, {{ $grave->person->owner_firstname }} {{ $grave->person->owner_mi }} || PHP{{ $grave->price }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                                                 {{ $loop->iteration }}
                                         </a>
                                         @else
-                                        <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="bg-danger text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }} || Owner: {{ $grave->person->owner_lastname }}, {{ $grave->person->owner_firstname }} {{ $grave->person->owner_mi }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                                        <a href="{{ route('persons.show', ['person' => $grave->person, 'grave_number' => $loop->iteration]) }}" class="bg-danger text-white grave text-xs" data-toggle="tooltip" data-placement="top" title="{{ $grave->person->full_name }} || {{ $grave->person->status }} || {{ $grave->person->payment }} || Owner: {{ $grave->person->owner_lastname }}, {{ $grave->person->owner_firstname }} {{ $grave->person->owner_mi }} || PHP{{ $grave->price }}" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
                                                 {{ $loop->iteration }}
                                         </a>
                                         @endif
 
 
                                         @else
-                                        <a href="{{ route('persons.create', $grave) }}" class="bg-primary text-white grave" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;">
+                                        <a href="{{ route('persons.create', $grave) }}" class="bg-primary text-white grave" data-id="{{ $grave->id }}" style="width: 50px; height: 25px; left: {{ $grave->position ? explode(',', $grave->position)[0] : 0 }}px; top: {{ $grave->position ? explode(',', $grave->position)[1] : 0 }}px;" data-toggle="tooltip" data-placement="top" title="PHP {{ $grave->price }}">
                                             {{ $loop->iteration }}
                                         </a>
                                         @endif

@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('sectors.graves', 'GraveController')->shallow();
     Route::get('/sector/{sector}/graves', 'GraveController@showSectorGraves')->name('sectors.graves');
+    Route::get('/gravesprice', 'GraveController@gravesprice')->name('graves.price');
+    Route::put('/graves/{grave}/update-price', 'GraveController@updatePrice')->name('update_price');
 
     Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
     Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
