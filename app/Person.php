@@ -17,7 +17,7 @@ class Person extends Model
 
     public function getFullNameAttribute()
     {
-        return "{$this->lastname}, {$this->firstname} {$this->mi}";
+        return "{$this->lastname} {$this->firstname} {$this->mi}";
     }
 
     public function users()

@@ -89,10 +89,14 @@
                 </div> -->
                
                     <img src="{{ asset('images/avatar.jpg') }}" class="img-fluid">
-                    <div>
-                        <h3 class="font-weight-bold">{{ $person->full_name }}</h3>
-                        <h3>BORN: {{ \Carbon\Carbon::parse($person->born)->format('M-d-Y')}}</h3>
-                        <h3>DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</h3>
+                    <div class="my-2">
+                        @if($person->lastname == null)
+                        <h3>NAME: N/A</h3>
+                        @else
+                        <h3>NAME: {{ $person->full_name }}</h3>
+                        @endif
+                        <h3>BORN: {{ $person->born ? \Carbon\Carbon::parse($person->born)->format('M-d-Y') : 'N/A' }}</h3>
+                        <h3>DIED: {{ $person->died ? \Carbon\Carbon::parse($person->born)->format('M-d-Y') : 'N/A' }}</h3>
                         <h3>LOCATION: <br>{{ $person->grave->sector->lot->name }}, {{ $person->grave->sector->name }}, GRAVE NO {{ $grave_number }}</h3>
                     </div>
              
