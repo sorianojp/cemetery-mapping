@@ -52,8 +52,9 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="status">
-                        <option value=""></option>
+                        <!-- <option value=""></option> -->
                         <option value="Reserved">Reserved</option>
+                        <option value="Open">Open</option>
                         </select>
                     </div>
                 </div>

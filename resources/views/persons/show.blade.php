@@ -111,7 +111,7 @@
                                 </div>
                             @else
                                 <div class="col-sm-12">
-                                    <p>Status: <span class="text-primary">Open</span></p>
+                                    <p>Status: <span class="text-primary">{{ $person->status }}</span></p>
                                 </div>
                             @endif
                             @if($person->payment == 'Unpaid')
