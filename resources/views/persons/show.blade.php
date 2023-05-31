@@ -108,9 +108,15 @@
                             <div class="col-sm-12">
                                 <p>Status: {{ $person->status }}</p>
                             </div>
-                            <div class="col-sm-12">
-                                <p>Payment: {{ $person->payment }}</p>
-                            </div>
+                            @if($person->payment == 'Unpaid')
+                                <div class="col-sm-12">
+                                    <p>Payment: <span class="text-danger">{{ $person->payment }}</span></p>
+                                </div>
+                            @else
+                                <div class="col-sm-12">
+                                    <p>Payment: <span class="text-primary">{{ $person->payment }}</span></p>
+                                </div>
+                            @endif
                             <div class="col-sm-12">
                                 <p>Grave Price: {{ $person->grave->price }}</p>
                             </div>
