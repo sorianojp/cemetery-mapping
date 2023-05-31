@@ -90,10 +90,10 @@
                
                     <img src="{{ asset('images/avatar.jpg') }}" class="img-fluid">
                     <div>
-                        <p class="font-weight-bold">{{ $person->full_name }}</p>
-                        <p>BORN: {{ \Carbon\Carbon::parse($person->born)->format('M-d-Y')}}</p>
-                        <p>DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</p>
-                        <p>LOCATION: <br>{{ $person->grave->sector->lot->name }}, {{ $person->grave->sector->name }}, GRAVE NO {{ $grave_number }}</p>
+                        <h3 class="font-weight-bold">{{ $person->full_name }}</h3>
+                        <h3>BORN: {{ \Carbon\Carbon::parse($person->born)->format('M-d-Y')}}</h3>
+                        <h3>DIED: {{ \Carbon\Carbon::parse($person->died)->format('M-d-Y')}}</h3>
+                        <h3>LOCATION: <br>{{ $person->grave->sector->lot->name }}, {{ $person->grave->sector->name }}, GRAVE NO {{ $grave_number }}</h3>
                     </div>
              
             </div>
@@ -103,28 +103,28 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <p>Owner: {{ $person->owner_lastname }}, {{ $person->owner_firstname }} {{ $person->owner_mi }}</p>
+                                <h3>Owner: {{ $person->owner_lastname }}, {{ $person->owner_firstname }} {{ $person->owner_mi }}</h3>
                             </div>
                             @if($person->status == 'Reserved')
                                 <div class="col-sm-12">
-                                    <p>Status: <span class="text-danger">{{ $person->status }}</span></p>
+                                    <h3>Status: <span class="text-danger">{{ $person->status }}</span></h3>
                                 </div>
                             @else
                                 <div class="col-sm-12">
-                                    <p>Status: <span class="text-primary">{{ $person->status }}</span></p>
+                                    <h3>Status: <span class="text-primary">{{ $person->status }}</span></h3>
                                 </div>
                             @endif
                             @if($person->payment == 'Unpaid')
                                 <div class="col-sm-12">
-                                    <p>Payment: <span class="text-danger">{{ $person->payment }}</span></p>
+                                    <h3>Payment: <span class="text-danger">{{ $person->payment }}</span></h3>
                                 </div>
                             @else
                                 <div class="col-sm-12">
-                                    <p>Payment: <span class="text-primary">{{ $person->payment }}</span></p>
+                                    <h3>Payment: <span class="text-primary">{{ $person->payment }}</span></h3>
                                 </div>
                             @endif
                             <div class="col-sm-12">
-                                <p>Grave Price: {{ $person->grave->price }}</p>
+                                <h3>Grave Price: {{ $person->grave->price }}</h3>
                             </div>
                         </div>
                     </div>
