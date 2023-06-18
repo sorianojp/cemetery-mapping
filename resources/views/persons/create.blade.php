@@ -55,6 +55,8 @@
                         <select class="form-control" name="status">
                         <option value=""></option>
                         <option value="Reserved">Reserved</option>
+                        <option value="Fully Paid">Fully Paid</option>
+                        <option value="Occupied">Occupied</option>
                         </select>
                     </div>
                 </div>

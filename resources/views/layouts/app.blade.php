@@ -13,6 +13,8 @@
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/buttons.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/printjs.min.css') }}">
+    @yield('styles')
     <style>
               /* Sticky footer styles
       -------------------------------------------------- */
@@ -165,6 +167,7 @@
     <script type="text/javascript" charset="utf8" src="{{ asset('js/datatables.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('js/buttons.print.min.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/printjs.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#deceased').DataTable( {

@@ -1,12 +1,17 @@
 @extends('layouts.app')
+@section('styles')
+@endsection
 @section('content')
-<div class="container my-5">
+<div class="container-fluid my-5">
     @foreach ($lots as $lot)
     <div class="row">
         @foreach ($lot->sectors as $sector)
         <div class="col-sm-4">
             <h2>{{ $sector->name }}</h2>
-            <table class="table table-bordered table-pagination">
+            <button type="button" class="btn btn-sm btn-primary my-2" onclick="printJS('printJS-form', 'html')">
+                Print
+            </button>
+            <table class="table table-bordered table-pagination" id="printJS-form">
                 <thead>
                     <tr>
                         <th>Grave</th>
@@ -37,13 +42,17 @@
 
 @section('scripts')
 <script>
-    $(document).ready(function() {
-        $('.table-pagination').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'print'
-            ]
-        });
-    });
+    // $(document).ready(function() {
+    //     $('.table-pagination').DataTable({
+    //         dom: 'Bfrtip',
+    //         buttons: [
+    //             'print'
+    //         ]
+    //     });
+    // });
+
+    $(document).ready(function () {
+    $('.table-pagination').DataTable();
+});
 </script>
 @endsection

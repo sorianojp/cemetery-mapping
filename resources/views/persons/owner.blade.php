@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label>Payment</label>
                         <select class="form-control" name="payment">
-                        <option value="Paid">Fully Paid</option>
+                        <option value="Paid">Paid</option>
                         <option value="Unpaid">Unpaid</option>
                         </select>
                     </div>
@@ -52,9 +52,10 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="status">
-                        <!-- <option value=""></option> -->
+                        <option value=""></option>
                         <option value="Reserved">Reserved</option>
-                        <option value="Open">Open</option>
+                        <option value="Fully Paid">Fully Paid</option>
+                        <option value="Occupied">Occupied</option>
                         </select>
                     </div>
                 </div>
